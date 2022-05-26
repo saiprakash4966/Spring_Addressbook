@@ -2,8 +2,7 @@ package com.example.addressbook.dto;
 
 import lombok.Data;
 
-public @Data
-class ContactDTO {
+public @Data class ContactDTO {
     public String firstName;
     public String lastName;
     public String address;
@@ -26,5 +25,3 @@ class ContactDTO {
 
 
 }
-
-
