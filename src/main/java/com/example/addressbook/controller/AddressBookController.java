@@ -37,6 +37,32 @@ public class AddressBookController {
         return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
 
     }
+    @GetMapping("/getbycity/{city}")
+    public ResponseEntity<ResponseDTO> getContactByCity(@PathVariable("city") String city)
+    {
+        List<Contact> contactList = addressbookservice.getContactByCity(city);
+        ResponseDTO response = new ResponseDTO("Get call success for city", contactList);
+        return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/sortbycity")
+    public ResponseEntity<ResponseDTO> getSortByCity()
+    {
+        List<Contact> contactList = addressbookservice.sortByCity();
+        ResponseDTO response = new ResponseDTO("Get call success for city", contactList);
+        return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+
+    }
+
+    @GetMapping("/sortbystate")
+    public ResponseEntity<ResponseDTO> getSortByState()
+    {
+        List<Contact> contactList = addressbookservice.sortByState();
+        ResponseDTO response = new ResponseDTO("Get call success for state", contactList);
+        return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+
+    }
+
 
     @PostMapping("/create")
     public ResponseEntity<ResponseDTO> addContactData(@Valid @RequestBody ContactDTO contactDTO) {
